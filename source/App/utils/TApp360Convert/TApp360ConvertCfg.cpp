@@ -111,12 +111,36 @@ TApp360ConvertCfg::TApp360ConvertCfg()
 
 TApp360ConvertCfg::~TApp360ConvertCfg()
 {
-  if(m_pchInputFile) free(m_pchInputFile); m_pchInputFile=NULL;
-  if(m_pchOutputFile) free(m_pchOutputFile); m_pchOutputFile=NULL;
-  if(m_pchRefFile) free(m_pchRefFile); m_pchRefFile=NULL;
-  if(m_pchSphData) free(m_pchSphData); m_pchSphData=NULL;
-  if(m_pchVPortFile) free(m_pchVPortFile); m_pchVPortFile=NULL;
-  if(m_pchSpherePointsFile) free(m_pchSpherePointsFile); m_pchSpherePointsFile=NULL;
+  if(m_pchInputFile) 
+  {
+    free(m_pchInputFile); 
+    m_pchInputFile=NULL;
+  }
+  if(m_pchOutputFile) 
+  {
+    free(m_pchOutputFile); 
+    m_pchOutputFile=NULL;
+  }
+  if(m_pchRefFile) 
+  {
+    free(m_pchRefFile);
+    m_pchRefFile=NULL;
+  }
+  if(m_pchSphData) 
+  {
+    free(m_pchSphData); 
+    m_pchSphData=NULL;
+  }
+  if(m_pchVPortFile) 
+  {
+    free(m_pchVPortFile); 
+    m_pchVPortFile=NULL;
+  }
+  if(m_pchSpherePointsFile) 
+  {
+    free(m_pchSpherePointsFile); 
+    m_pchSpherePointsFile=NULL;
+  }
 }
 
 Void TApp360ConvertCfg::create()
@@ -195,18 +219,22 @@ static inline std::istringstream &operator>>(std::istringstream &in, GeometryRot
   in>>rot.degree[2];
   return in;
 }
+
 static inline std::istringstream &operator>>(std::istringstream &in, SVideoFPStruct &sFPStruct)     //input
 {
   in>>sFPStruct.rows;
   in>>sFPStruct.cols;
   for ( Int i = 0; i < sFPStruct.rows; i++ )
+  {
     for(Int j=0; j<sFPStruct.cols; j++)
     {
       in>>sFPStruct.faces[i][j].id;
       in>>sFPStruct.faces[i][j].rot;
     }
-    return in;
+  }
+  return in;
 }
+
 static inline std::istringstream &operator>>(std::istringstream &in, ViewPortSettings &vp)     //input
 {
   in>>vp.hFOV;
