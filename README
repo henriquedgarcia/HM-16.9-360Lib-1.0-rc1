@@ -3,12 +3,12 @@ This is a clone from https://jvet.hhi.fraunhofer.de/svn/svn_360Lib/tags/HM-16.9-
 This is a software ference for HEVC plus 360lib.
 
 Linux Instalation:
-Depends make
-On Ubuntu
-`sudo apt-get install build-essential`
+Depends make, gcc, etc.
+On Ubuntu:
 
-`cd build/linux`
-`make`
+    sudo apt-get install build-essential
+    cd build/linux
+    make
 
 OBS: Use absolute path without spaces.
 
